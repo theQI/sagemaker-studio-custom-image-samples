@@ -1,0 +1,20 @@
+name: py39_ml_member_dl
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pandas
+  - sagemaker
+  - numpy
+  - awscli
+  - boto3
+  - ipykernel
+  - tensorflow
+  - tensorflow-probability
+  - scikit-learn
+  - pyarrow
+  - pip
+  - pip: 
+    - duckdb
+    - sagemaker-experiments
+
