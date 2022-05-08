@@ -22,3 +22,11 @@ docker push 714686731622.dkr.ecr.us-east-2.amazonaws.com/sm-py39-ml-member-dl
         }
     }
 }
+
+ACCOUNT_ID="714686731622"
+ECR_REPO_NAME="sm-ml-uw-custom-images"
+IMAGE_NAME="py39-member-dl"
+aws --region ${REGION} ecr get-login-password --profile medmutual | docker login --username AWS --password-stdin ${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/{ECR_REPO_NAME}
+docker build . -t ${TAG_NAME} -t ${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/sm-ml-uw-custom-images:${IMAGE_NAME}
+docker push ${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/smstudio-custom:${TAG_NAME}
+docker push ${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/sm-ml-uw-custom-images:${TAG_NAME}
